@@ -1,4 +1,19 @@
 basePath: /api/v1
+definitions:
+  router_manager.CustomerInput:
+    properties:
+      name:
+        type: string
+    required:
+    - name
+    type: object
+  router_manager.CustomerResponse:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
 info:
   contact: {}
   description: Sample API description
@@ -37,4 +52,25 @@ paths:
         "200":
           description: OK
       summary: Customer sign in process.
+  /customer/signup:
+    post:
+      consumes:
+      - application/json
+      description: Create a new customer.
+      operationId: create-customer
+      parameters:
+      - description: Customer information to create
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/router_manager.CustomerInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/router_manager.CustomerResponse'
+      summary: Create a new customer.
 swagger: "2.0"

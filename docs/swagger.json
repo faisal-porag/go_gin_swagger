@@ -57,6 +57,62 @@
                     }
                 }
             }
+        },
+        "/customer/signup": {
+            "post": {
+                "description": "Create a new customer.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Create a new customer.",
+                "operationId": "create-customer",
+                "parameters": [
+                    {
+                        "description": "Customer information to create",
+                        "name": "input",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/router_manager.CustomerInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/router_manager.CustomerResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "router_manager.CustomerInput": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "router_manager.CustomerResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
         }
     }
 }
