@@ -7,12 +7,34 @@ info:
 paths:
   /customer:
     get:
-      description: Get details about a customer.
-      operationId: get-customer
+      description: Get home page details.
+      operationId: get-home-page
       produces:
       - application/json
       responses:
         "200":
           description: OK
+      summary: Get home page.
+  /customer/profile:
+    get:
+      description: Get details about a customer.
+      operationId: customer-profile
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      security:
+      - BearerToken: []
       summary: Get information about a customer.
+  /customer/sign-in:
+    post:
+      description: Customer sign in.
+      operationId: customer-sign-in
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Customer sign in process.
 swagger: "2.0"

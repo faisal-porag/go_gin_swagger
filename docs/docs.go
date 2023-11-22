@@ -17,12 +17,47 @@ const docTemplate = `{
     "paths": {
         "/customer": {
             "get": {
+                "description": "Get home page details.",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get home page.",
+                "operationId": "get-home-page",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/customer/profile": {
+            "get": {
+                "security": [
+                    {
+                        "BearerToken": []
+                    }
+                ],
                 "description": "Get details about a customer.",
                 "produces": [
                     "application/json"
                 ],
                 "summary": "Get information about a customer.",
-                "operationId": "get-customer",
+                "operationId": "customer-profile",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/customer/sign-in": {
+            "post": {
+                "description": "Customer sign in.",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Customer sign in process.",
+                "operationId": "customer-sign-in",
                 "responses": {
                     "200": {
                         "description": "OK"
