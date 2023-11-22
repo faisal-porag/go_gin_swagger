@@ -1,13 +1,13 @@
 basePath: /api/v1
 definitions:
-  router_manager.CustomerInput:
+  params.CustomerInput:
     properties:
       name:
         type: string
     required:
     - name
     type: object
-  router_manager.CustomerResponse:
+  response_structs.CustomerResponse:
     properties:
       id:
         type: integer
@@ -64,13 +64,13 @@ paths:
         name: input
         required: true
         schema:
-          $ref: '#/definitions/router_manager.CustomerInput'
+          $ref: '#/definitions/params.CustomerInput'
       produces:
       - application/json
       responses:
         "201":
           description: Created
           schema:
-            $ref: '#/definitions/router_manager.CustomerResponse'
+            $ref: '#/definitions/response_structs.CustomerResponse'
       summary: Create a new customer.
 swagger: "2.0"

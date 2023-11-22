@@ -1,6 +1,10 @@
 package router_manager
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"go_gin_swagger/params"
+	"go_gin_swagger/response_structs"
+)
 
 // MountCustomerRoutes mounts the "/customer" routes
 func MountCustomerRoutes(router *gin.RouterGroup) {
@@ -52,11 +56,11 @@ func customerProfileHandler(c *gin.Context) {
 // @ID create-customer
 // @Accept json
 // @Produce json
-// @Param input body CustomerInput true "Customer information to create"
-// @Success 201 {object} CustomerResponse
+// @Param input body params.CustomerInput true "Customer information to create"
+// @Success 201 {object} response_structs.CustomerResponse
 // @Router /customer/signup [post]
 func createCustomer(c *gin.Context) {
-	var input CustomerInput
+	var input params.CustomerInput
 	if err := c.ShouldBindJSON(&input); err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
@@ -66,20 +70,9 @@ func createCustomer(c *gin.Context) {
 	// ...
 
 	// Return the created customer
-	c.JSON(201, CustomerResponse{
+	c.JSON(201, response_structs.CustomerResponse{
 		ID:   3, // Replace with the actual ID of the created customer
 		Name: input.Name,
 		// Include other fields as needed
 	})
-}
-
-type CustomerInput struct {
-	Name string `json:"name" binding:"required"`
-	// Add other input fields as needed
-}
-
-type CustomerResponse struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
-	// Add other response fields as needed
 }

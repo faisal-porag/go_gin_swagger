@@ -83,7 +83,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/router_manager.CustomerInput"
+                            "$ref": "#/definitions/params.CustomerInput"
                         }
                     }
                 ],
@@ -91,7 +91,7 @@ const docTemplate = `{
                     "201": {
                         "description": "Created",
                         "schema": {
-                            "$ref": "#/definitions/router_manager.CustomerResponse"
+                            "$ref": "#/definitions/response_structs.CustomerResponse"
                         }
                     }
                 }
@@ -99,7 +99,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "router_manager.CustomerInput": {
+        "params.CustomerInput": {
             "type": "object",
             "required": [
                 "name"
@@ -110,7 +110,7 @@ const docTemplate = `{
                 }
             }
         },
-        "router_manager.CustomerResponse": {
+        "response_structs.CustomerResponse": {
             "type": "object",
             "properties": {
                 "id": {
