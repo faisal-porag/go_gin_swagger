@@ -13,8 +13,9 @@ import (
 )
 
 func Serve(s *state.State) {
-	// TODO:: UNCOMMENT THIS LINE IN PRODUCTION
-	//gin.SetMode(gin.ReleaseMode)
+	if s.Cfg.IsProductionMode {
+		gin.SetMode(gin.ReleaseMode)
+	}
 
 	// Create a Gin router instance
 	router := gin.Default()
@@ -38,7 +39,7 @@ func Serve(s *state.State) {
 
 	// Start the Gin server
 	port := s.Cfg.ApplicationPort
-	log.Info().Int("port", port).Msg("Starting customer app service http server")
+	log.Info().Int("port", port).Msg("Starting sample app service http server")
 	err := router.Run(fmt.Sprintf(":%d", port))
 	if err != nil {
 		log.Fatal().Err(err).Msg("router.Run err")

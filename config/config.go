@@ -5,8 +5,9 @@ import (
 )
 
 type Config struct {
-	ApplicationPort int  `env:"APPLICATION_PORT" envDefault:"8070"`
-	DebugMode       bool `env:"DEBUG_MODE" envDefault:"false"`
+	ApplicationPort  int  `env:"APPLICATION_PORT" envDefault:"8070"`
+	DebugMode        bool `env:"DEBUG_MODE" envDefault:"false"`
+	IsProductionMode bool `env:"IS_PRODUCTION_MODE" envDefault:"false"`
 }
 
 func NewConfig() (*Config, error) {
