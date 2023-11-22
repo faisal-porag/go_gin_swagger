@@ -1,0 +1,27 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Sample API description",
+        "title": "MY Sample API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "basePath": "/api/v1",
+    "paths": {
+        "/customer": {
+            "get": {
+                "description": "Get details about a customer.",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get information about a customer.",
+                "operationId": "get-customer",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    }
+}
