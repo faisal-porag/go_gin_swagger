@@ -1,9 +1,10 @@
 package router_manager
 
 import (
-	"github.com/gin-gonic/gin"
 	"go_gin_swagger/params"
 	"go_gin_swagger/response_structs"
+
+	"github.com/gin-gonic/gin"
 )
 
 // MountCustomerRoutes mounts the "/customer" routes
