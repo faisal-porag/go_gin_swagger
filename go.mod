@@ -1,6 +1,8 @@
 module go_gin_swagger
 
-go 1.20
+go 1.21
+
+toolchain go1.23.9
 
 require (
 	github.com/caarlos0/env/v6 v6.10.1

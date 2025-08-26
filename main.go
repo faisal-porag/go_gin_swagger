@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/joho/godotenv"
-	"github.com/rs/zerolog/log"
 	"go_gin_swagger/config"
 	_ "go_gin_swagger/docs"
 	"go_gin_swagger/httpserver"
 	"go_gin_swagger/state"
+
+	"github.com/joho/godotenv"
+	"github.com/rs/zerolog/log"
 )
 
 // @title MY Sample API
